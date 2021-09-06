@@ -13,9 +13,15 @@ async function getUserData() {
 
     const date1 = new Date(repoData.created_at);
     const date2 = new Date(repoData.closed_at);
-    const diffTime = Math.abs(date2 - date1);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 *24));
-    document.querySelector('#days').innerHTML = `<strong> Length of time the issue is open: </strong> ${diffDays} days`;   
+
+    if (date2 != null){
+        const diffTime = Math.abs(date2 - date1);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 *24));
+        document.querySelector('#days').innerHTML = `<strong> Length of time the issue is open: </strong> ${diffDays} days`; 
+    }
+    else {
+        document.querySelector('#days').innerHTML = `<strong> This issue has not been closed yet </strong>`;
+    }
 }
 
 window.addEventListener('DOMContentLoaded', () => {
