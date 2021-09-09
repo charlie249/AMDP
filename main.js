@@ -14,7 +14,6 @@ async function getUserData() {
 
     const date1 = new Date(repoData.created_at);
     const date2 = new Date(repoData.closed_at);
-    console.log (repoData.closed_at);
 
     if (repoData.closed_at != null){
         const diffTime = Math.abs(date2 - date1);
@@ -24,12 +23,19 @@ async function getUserData() {
     else {
         document.querySelector('#days').innerHTML = `<strong> This issue has not been closed yet </strong>`;
     }
-
 }
 
-function myFunction(){
-    console.log("Hello There");
+
+async function myFunction(){
+    const repo = await fetch('https://api.github.com/repos/serge-web/serge/issues/' + getUserData.issueNumb);
+    const repoData = await repo.json();
+    const date1 = new Date(repoData.created_at);
+    const date2 = new Date(repoData.closed_at);
+    const diffTime = Math.abs(date2 - date1);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 *24));
+    console.log(diffDays);
 }
+
 
 window.addEventListener('DOMContentLoaded', () => {
     getUserData();
