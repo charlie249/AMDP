@@ -11,10 +11,12 @@ async function getUserData() {
     document.querySelector('#created').innerHTML = `<strong> Created at: </strong> ${repoData.created_at}`;
     document.querySelector('#closed').innerHTML = `<strong> Closed at: </strong> ${repoData.closed_at}`;
 
+
     const date1 = new Date(repoData.created_at);
     const date2 = new Date(repoData.closed_at);
+    console.log (repoData.closed_at);
 
-    if (date2 != null){
+    if (repoData.closed_at != null){
         const diffTime = Math.abs(date2 - date1);
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 *24));
         document.querySelector('#days').innerHTML = `<strong> Length of time the issue is open: </strong> ${diffDays} days`; 
@@ -22,6 +24,11 @@ async function getUserData() {
     else {
         document.querySelector('#days').innerHTML = `<strong> This issue has not been closed yet </strong>`;
     }
+
+}
+
+function myFunction(){
+    console.log("Hello There");
 }
 
 window.addEventListener('DOMContentLoaded', () => {
