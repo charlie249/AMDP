@@ -1,6 +1,8 @@
 async function getUserData() {
 
-    var issueNumb = prompt("Please enter the number of the issue you would like to view information about: ");
+    var issueNumb = document.getElementById('issue_numb');
+    
+    //prompt("Please enter the number of the issue you would like to view information about: ");
 
     const issue = await fetch('https://api.github.com/repos/serge-web/serge/issues/' + issueNumb);
     const issueData = await issue.json();
@@ -35,6 +37,29 @@ async function myFunction(){
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 *24));
     console.log(diffDays);
 
+}
+
+function main() {
+    // Adds event listenener to form with id of repo_info
+    var myForm = document.getElementById("repo_info");
+    // A function called validateForm will be called when the form submits
+    myForm.addEventListener("submit", validateForm);
+}
+
+function validateForm(event){
+    var formValid = true;
+    event.preventDefault();
+    var myForm = document.getElementById("repo_info");
+
+    if(myForm.question.value == ""){
+        formValid = False;
+        //Show Error message
+        document.getElementById("repo_nameRequiredError").style.display = "block";
+        //Stop form submitting
+        event.preventDefault();
+    } else {
+        document.getElementById("repo_infoRequiredError").style.display = "none";
+    }
 }
 
 
