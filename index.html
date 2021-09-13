@@ -6,9 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Agile Metrics Project </title>
 </head>
-<body>
+<body onload="main()">
+    <div>
+        <h1> Agile Metrics Dashboard Project </h1>
+        <p> Please enter the information required below about the repository you wish to view information about </p>
+        <form id="repo_info">
 
-    <h1> Agile Metrics Project </h1>
+            <!-- Repo Name  -->
+            <fieldset>
+                <legend> Repo Info </legend>
+                <p></p>
+                <label> Repository  Name: </label> <input type="text" repo="repo_name" required>
+                <p></p>
+                <label> Issue Number: </label> <input type="text" repo="issue_numb" required>
+            </fieldset>
+
+            <!-- Submit button -->
+            <p></p>
+            <input type="submit" id="subButton">
+            <footer id="footer">
+            </footer> 
+        </div>   
+
     <p id='title'> </p> 
     <p id='id'> </p> 
     <p id='number'> </p> 
@@ -20,6 +39,6 @@
     <p id='test'> </p>
 
     <button onclick="myFunction()"> Smallest time </button>
-     
+
 </body>
 </html>
