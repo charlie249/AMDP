@@ -1,8 +1,8 @@
 async function getUserData() {
 
-    //var issueNumb = prompt("Please enter the number of the issue you would like to view information about: ");
-    //document.getElementById('issue_numb').innerHTML;
     //console.log(issueNumb); 
+    //document.getElementById('issue_numb').innerHTML;
+    //var issueNumb = prompt("Please enter the number of the issue you would like to view information about: ");
 
     var issueNumb = document.getElementById('issue_numb').value;
     var repoName = document.getElementById('repo_name').value; 
@@ -47,22 +47,6 @@ function main() {
     var myForm = document.getElementById("repo_info");
     // A function called validateForm will be called when the form submits
     myForm.addEventListener("submit", validateForm);
-}
-
-function validateForm(event){
-    var formValid = true;
-    event.preventDefault();
-    var myForm = document.getElementById("repo_info");
-
-    if(myForm.question.value == ""){
-        formValid = False;
-        //Show Error message
-        document.getElementById("repo_nameRequiredError").style.display = "block";
-        //Stop form submitting
-        event.preventDefault();
-    } else {
-        document.getElementById("repo_nameRequiredError").style.display = "none";
-    }
 }
 
 window.addEventListener('DOMContentLoaded', () => {
