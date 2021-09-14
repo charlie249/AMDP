@@ -30,7 +30,6 @@ async function getUserData() {
 
 }
 
-async function repoName(){
 
     var userInput = prompt("Please enter the name of the repository you would like to view information about: ");
     const repoName = await fetch('https://api.github.com/repos/serge-web/' + userInput);
