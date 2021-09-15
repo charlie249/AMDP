@@ -8,17 +8,10 @@
 </head>
 <body>  
 
-    <button onclick="repoName()"> update </button>
-
-    <!-- <p id='title'> </p> 
-    <p id='id'> </p> 
-    <p id='number'> </p> 
-    <p id='state'> </p>
-    <p id='created'> </p>
-    <p id='closed'> </p>
-    <p id='closed'> </p>
-    <p id='days'> </p>
-    <p id='test'> </p> -->
+    <label for='repo'>Repo: </label>
+    <input id='repo' value="serge-web/serge"/>
+    <button onclick="getUserData();"> View Repository: </button>
+    
     <p id="name"> </p>
     <p id="description"> </p>
     <p id="updated"> </p>
@@ -26,7 +19,20 @@
     <p id="openIssues"> </p>
     <p id="subscribers"> </p> 
 
-   <!-- <button onclick="myFunction()"> Smallest time </button> -->
+    <label for='issue'>Issue Number: </label>
+    <input id='issue' value="991"/>
+    <p> </p>
+   <button onclick="userIssue()"> View Issue </button>
+
+    <p id='title'> </p> 
+    <p id='id'> </p> 
+    <p id='number'> </p> 
+    <p id='state'> </p>
+    <p id='created'> </p>
+    <p id='closed'> </p>
+    <p id='closed'> </p>
+    <p id='days'> </p>
+    <p id='test'> </p>
 
 </body>
 </html>
