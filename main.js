@@ -7,6 +7,9 @@ async function getUserData() {
 
     const issuesData = await fetch('https://api.github.com/repos/' + repo + '/issues');
     const issues = await issuesData.json();
+    console.log(issues);
+
+    console.log(Array.from(issues));
 
     var issuesJSON = JSON.parse(issues);
     console.log(issuesJSON);
