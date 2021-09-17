@@ -5,8 +5,11 @@ async function getUserData() {
     const repoName = await fetch('https://api.github.com/repos/' + repo);
     const repoNameData = await repoName.json();
 
-    const issuesData = await fetch('https://api.github.com/repos/serge-web/serge/issues');
+    const issuesData = await fetch('https://api.github.com/repos/' + repo + '/issues');
     const issues = await issuesData.json();
+    console.log(issues);
+
+    console.log(Array.from(issues));
 
     document.querySelector('#name').innerHTML = `<strong> Name of repository: </strong> ${repoNameData.name}`;
     document.querySelector('#description').innerHTML = `<strong> Description: </strong> ${repoNameData.description}`;
@@ -31,7 +34,6 @@ async function userIssue(){
     document.querySelector('#created').innerHTML = `<strong> Created at: </strong> ${issueData.created_at}`;
     document.querySelector('#closed').innerHTML = `<strong> Closed at: </strong> ${issueData.closed_at}`;
 
-    
     const date1 = new Date(issueData.created_at);
     const date2 = new Date(issueData.closed_at);
 
@@ -43,7 +45,6 @@ async function userIssue(){
     else {
         document.querySelector('#days').innerHTML = `<strong> This issue has not been closed yet </strong>`;
      } 
-
 }
 
 window.addEventListener('DOMContentLoaded', () => {
