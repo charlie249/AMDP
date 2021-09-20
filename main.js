@@ -8,15 +8,21 @@ async function getUserData() {
     const issuesData = await fetch('https://api.github.com/repos/' + repo + '/issues');
     const issues = await issuesData.json();
 
-    var issuesJSON = JSON.parse(issues);
-    console.log(issuesJSON);
+    for(i = 0; i < issues.length; i++)
+    {
+        console.log(issues[i].title);
+        document.querySelector('#issues').innerHTML = `<strong> Issues: </strong> ${issues[i].title}`;
+    }
+
+
+    //var issuesJSON = JSON.parse(issues);
+    //console.log(issuesJSON);
 
     document.querySelector('#name').innerHTML = `<strong> Name of repository: </strong> ${repoNameData.name}`;
     document.querySelector('#description').innerHTML = `<strong> Description: </strong> ${repoNameData.description}`;
     document.querySelector('#updated').innerHTML = `<strong> Last Updated At: </strong> ${repoNameData.updated_at}`;
     document.querySelector('#subscribers').innerHTML = `<strong> Number of Subscribers: </strong> ${repoNameData.subscribers_count}`;
     document.querySelector('#openIssues').innerHTML = `<strong> Number of open issues: </strong> ${repoNameData.open_issues_count}`;
-    document.querySelector('#issues').innerHTML = `<strong> Issues: </strong> ${issues}`;
     }
 
 async function userIssue(){
