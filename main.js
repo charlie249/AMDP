@@ -10,16 +10,17 @@ async function getUserData() {
 
     for(i = 0; i < issues.length; i++)
     {
-        console.log(issues[i].title);
-        console.log(issues.length);
+        if(issues[i].created_at < issues[i].created_at)
+        {
+            console.log("high");
+        } else {
+            var ul = document.getElementById("issues");
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(issues[i].title));
+            ul.appendChild(li);
 
-
-        var ul = document.getElementById("issues");
-        var li = document.createElement("li");
-        li.appendChild(document.createTextNode(issues[i].title));
-        ul.appendChild(li);
-
-        numb = issues.length;
+            numb = issues.length;
+        }
         }
 
     //var issuesJSON = JSON.parse(issues);
