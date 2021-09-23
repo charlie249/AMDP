@@ -18,17 +18,36 @@ async function getUserData() {
             numb = pulls.length;
     }
 
+   // const mergesData = await fetch('https://api.github.com/repos/' + repo + '/merges');
+   // const merges = await mergesData.json();
+
+
     //var issuesJSON = JSON.parse(issues);
     //console.log(issuesJSON);
 
     document.querySelector('#name').innerHTML = `<strong> Name of repository: </strong> ${repoNameData.name}`;
-   document.querySelector('#description').innerHTML = `<strong> Description: </strong> ${repoNameData.merged}`;
+    document.querySelector('#description').innerHTML = `<strong> Description: </strong> ${repoNameData.merged}`;
     document.querySelector('#updated').innerHTML = `<strong> Last Updated At: </strong> ${repoNameData.updated_at}`;
     document.querySelector('#subscribers').innerHTML = `<strong> Number of Subscribers: </strong> ${repoNameData.subscribers_count}`;
     document.querySelector('#pulls').innerHTML = `<strong> Pulls: </strong>`;
-    document.querySelector('#openIssues').innerHTML = `<strong> Number of open issues: </strong> ${repoNameData.open_issues_count}`;
+    document.querySelector('#merges').innerHTML = `<strong> Merges: </strong>`;
     document.querySelector('#totalIssues').innerHTML = `<strong> Number of issues: </strong> ${numb}`;
     }
+
+async function getPullRequest() {
+
+    const repo = document.querySelector('#repo').value;
+
+    const pull= document.querySelector('#pulls').value
+
+    const pullsID = await fetch('https://api.github.com/repos/' + repo + '/pulls/' + pull);
+    const pullsData = await pullsID.json();
+
+    console.log("pullsID:" + pullsID);
+
+    document.querySelector('#test').innerHTML = `<strong> Pull Request ID: </strong> ${pullsData.id}`;
+
+}
 
 /*
     console.log('in my')
