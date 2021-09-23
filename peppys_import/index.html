@@ -9,7 +9,7 @@
 <body>  
 
     <label for='repo'>Repository: </label>
-    <input id='repo' value="serge-web/serge"/>
+    <input id='repo' value="debrief/pepys-import"/>
     <button onclick="getUserData();"> View Repository </button>
     
     <p id="name"> </p>
@@ -19,9 +19,14 @@
     <ol id="pullRequests">
     </ol>
     <p id= "totalIssues"> </p>
-    <p id="openIssues"> </p>
+    <p id="merges"> </p>
     <p id="subscribers"> </p> 
 
+    <label for='pulls'>Pull Request Number: </label>
+    <input id='pulls' value="1024"/>
+    <button onclick="getPullRequest();"> View Pull Request </button>
+
+    <p id="test"> </p>
 
 </body>
 </html>
