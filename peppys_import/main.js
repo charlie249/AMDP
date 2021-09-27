@@ -38,14 +38,38 @@ async function getPullRequest() {
 
     const repo = document.querySelector('#repo').value;
 
-    const pulls= document.querySelector('#pulls').value
+    const pull= document.querySelector('#pulls').value
 
     const pullsData = await fetch('https://api.github.com/repos/' + repo + '/pulls');
-    const pull = await pullsData.json();
+    const pulls = await pullsData.json();
 
-    console.log("pullsID:" + pullsData);
+    for(i = 0; i < pulls.length; i++)
+    {
+        document.querySelector('#userLogin').innerHTML = `<strong> User Login: </strong> ${pulls[i].user.login}`;
+        console.log(pulls[i].title);
 
-    document.querySelector('#test').innerHTML = `<strong> Pull Request ID: </strong> ${pull.state}`;
+        var ol = document.getElementById("pull");
+            var num = document.createElement("li");
+            var title = document.createElement("li");
+            var userLogin = document.createElement("li");
+            var createdAt = document.createElement("li");
+            var files = document.createElement("li");
+            var merged = document.createElement("li");
+            num.appendChild(document.createTextNode(pulls[i].number));
+            title.appendChild(document.createTextNode(pulls[i].title));
+            userLogin.appendChild(document.createTextNode(pulls[i].user.login));
+            createdAt.appendChild(document.createTextNode(pulls[i].created_at));
+            //files.appendChild(document.createTextNode(pulls[i].files));
+            merged.appendChild(document.createTextNode(pulls[i].merged));
+            ol.appendChild(num);
+            ol.appendChild(title);
+            ol.appendChild(userLogin);
+            ol.appendChild(createdAt);
+            ol.appendChild(files);
+            ol.appendChild(merged);
+    }
+
+  
 
 }
 
