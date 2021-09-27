@@ -40,7 +40,7 @@ async function getPullRequest() {
 
     const pull= document.querySelector('#pulls').value
 
-    const pullsID = await fetch('https://api.github.com/repos/' + repo + '/pulls/' + pull);
+    const pullsID = await fetch('https://api.github.com/repos/' + repo + '/pulls');
     const pullsData = await pullsID.json();
 
     console.log("pullsID:" + pullsID);
