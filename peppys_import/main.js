@@ -38,14 +38,26 @@ async function getPullRequest() {
 
     const repo = document.querySelector('#repo').value;
 
-    const pulls= document.querySelector('#pulls').value
+    const pull= document.querySelector('#pulls').value
 
     const pullsData = await fetch('https://api.github.com/repos/' + repo + '/pulls');
-    const pull = await pullsData.json();
+    const pulls = await pullsData.json();
 
-    console.log("pullsID:" + pullsData);
+    for(i = 0; i < pulls.length; i++)
+    {
+        document.querySelector('#userLogin').innerHTML = `<strong> User Login: </strong> ${pulls[i].user.login}`;
+        console.log(pulls[i].title);
 
-    document.querySelector('#test').innerHTML = `<strong> Pull Request ID: </strong> ${pull.state}`;
+        var ol = document.getElementById("pull");
+            var li = document.createElement("li");
+            var il = document.createElement("li");
+            li.appendChild(document.createTextNode(pulls[i].user.login));
+            il.appendChild(document.createTextNode(pulls[i].created_at));
+            ol.appendChild(li);
+            ol.appendChild(il);
+    }
+
+  
 
 }
 
