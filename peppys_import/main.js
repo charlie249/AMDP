@@ -42,7 +42,6 @@ async function getPullRequest() {
 
     const pullsData = await fetch('https://api.github.com/repos/' + repo + '/pulls');
     const pulls = await pullsData.json();
-<<<<<<< HEAD
 
     for(i = 0; i < pulls.length; i++)
     {
@@ -68,24 +67,6 @@ async function getPullRequest() {
             ol.appendChild(createdAt);
             ol.appendChild(files);
             ol.appendChild(merged);
-=======
-
-    for(i = 0; i < pulls.length; i++)
-    {
-        document.querySelector('#userLogin').innerHTML = `<strong> User Login: </strong> ${pulls[i].user.login}`;
-        console.log(pulls[i].title);
-
-        var ol = document.getElementById("pull");
-            var li = document.createElement("li");
-            var il = document.createElement("li");
-            li.appendChild(document.createTextNode(pulls[i].user.login));
-            il.appendChild(document.createTextNode(pulls[i].created_at));
-            ol.appendChild(li);
-            ol.appendChild(il);
->>>>>>> master
-    }
-
-  
 
 }
 
