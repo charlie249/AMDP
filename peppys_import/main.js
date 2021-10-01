@@ -47,11 +47,7 @@ async function getPullRequest() {
     {
         document.querySelector('#userLogin').innerHTML = `<strong> User Login: </strong> ${pulls[i].user.login}`;
 
-<<<<<<< HEAD
         if(pulls[i].merged_at == null )
-=======
-        if(pulls[i].merged_at = 'null' )
->>>>>>> master
         { 
             var ol = document.getElementById("pull");
             var num = document.createElement("li");
