@@ -26,7 +26,7 @@ async function getUserData() {
     //console.log(issuesJSON);
 
     document.querySelector('#name').innerHTML = `<strong> Name of repository: </strong> ${repoNameData.name}`;
-    document.querySelector('#description').innerHTML = `<strong> Description: </strong> ${repoNameData.merged}`;
+    document.querySelector('#description').innerHTML = `<strong> Description: </strong> ${repoNameData.description}`;
     document.querySelector('#updated').innerHTML = `<strong> Last Updated At: </strong> ${repoNameData.updated_at}`;
     document.querySelector('#subscribers').innerHTML = `<strong> Number of Subscribers: </strong> ${repoNameData.subscribers_count}`;
     document.querySelector('#pulls').innerHTML = `<strong> Pulls: </strong>`;
@@ -46,27 +46,55 @@ async function getPullRequest() {
     for(i = 0; i < pulls.length; i++)
     {
         document.querySelector('#userLogin').innerHTML = `<strong> User Login: </strong> ${pulls[i].user.login}`;
-        console.log(pulls[i].title);
 
-        var ol = document.getElementById("pull");
+        if(pulls[i].merged_at = 'null' )
+        { 
+            var ol = document.getElementById("pull");
             var num = document.createElement("li");
             var title = document.createElement("li");
             var userLogin = document.createElement("li");
             var createdAt = document.createElement("li");
             var files = document.createElement("li");
             var merged = document.createElement("li");
+            var space = document.createElement("p");
             num.appendChild(document.createTextNode(pulls[i].number));
             title.appendChild(document.createTextNode(pulls[i].title));
             userLogin.appendChild(document.createTextNode(pulls[i].user.login));
             createdAt.appendChild(document.createTextNode(pulls[i].created_at));
-            //files.appendChild(document.createTextNode(pulls[i].files));
-            merged.appendChild(document.createTextNode(pulls[i].merged));
+            files.appendChild(document.createTextNode(pulls[i].files));
+            merged.appendChild(document.createTextNode("This pull request has not yet been merged!"));
             ol.appendChild(num);
             ol.appendChild(title);
             ol.appendChild(userLogin);
             ol.appendChild(createdAt);
             ol.appendChild(files);
             ol.appendChild(merged);
+            ol.appendChild(space);
+
+        }else {
+            var ol = document.getElementById("pull");
+            var num = document.createElement("li");
+            var title = document.createElement("li");
+            var userLogin = document.createElement("li");
+            var createdAt = document.createElement("li");
+            var files = document.createElement("li");
+            var merged = document.createElement("li");
+            var space = document.createElement("p");
+            num.appendChild(document.createTextNode(pulls[i].number));
+            title.appendChild(document.createTextNode(pulls[i].title));
+            userLogin.appendChild(document.createTextNode(pulls[i].user.login));
+            createdAt.appendChild(document.createTextNode(pulls[i].created_at));
+            files.appendChild(document.createTextNode(pulls[i].files));
+            merged.appendChild(document.createTextNode(pulls[i].merged_at));
+            ol.appendChild(num);
+            ol.appendChild(title);
+            ol.appendChild(userLogin);
+            ol.appendChild(createdAt);
+            ol.appendChild(files);
+            ol.appendChild(merged);
+            ol.appendChild(space);
+        }
+    }
 
 }
 
