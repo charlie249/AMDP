@@ -45,6 +45,11 @@ async function getPullRequest() {
 
     for(i = 0; i < pulls.length; i++)
     {
+<<<<<<< HEAD
+=======
+        document.querySelector('#userLogin').innerHTML = `<strong> User Login: </strong> ${pulls[i].user.login}`;
+
+>>>>>>> master
         if(pulls[i].merged_at == null )
         { 
             var ol = document.getElementById("pull");
