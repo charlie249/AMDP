@@ -59,31 +59,7 @@ async function getPullRequest() {
             ol.appendChild(merged);
             ol.appendChild(space);
 
-        } else{
-            var ol = document.getElementById("pull");
-            var num = document.createElement("li");
-            var title = document.createElement("li");
-            var userLogin = document.createElement("li");
-            var closedAt = document.createElement("li");
-            var files = document.createElement("li");
-            var merged = document.createElement("li");
-            var space = document.createElement("p");
-            num.appendChild(document.createTextNode(pulls[i].number));
-            title.appendChild(document.createTextNode(pulls[i].title));
-            userLogin.appendChild(document.createTextNode(pulls[i].user.login));
-            closedAt.appendChild(document.createTextNode(pulls[i].closed_at));
-            files.appendChild(document.createTextNode(pulls[i].files));
-            merged.appendChild(document.createTextNode(pulls[i].merged_at));
-            ol.appendChild(num);
-            ol.appendChild(title);
-            ol.appendChild(userLogin);
-            ol.appendChild(closedAt);
-            ol.appendChild(files);
-            ol.appendChild(merged);
-            ol.appendChild(space);
-        }
-
-        if(pulls[i].closed_at == null )
+        } else if(pulls[i].closed_at == null )
         { 
             var ol = document.getElementById("pull");
             var num = document.createElement("li");
@@ -107,7 +83,8 @@ async function getPullRequest() {
             ol.appendChild(merged);
             ol.appendChild(space);
 
-        } else{
+        } else
+        {
             var ol = document.getElementById("pull");
             var num = document.createElement("li");
             var title = document.createElement("li");
