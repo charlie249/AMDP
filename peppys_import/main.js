@@ -38,73 +38,30 @@ async function getPullRequest() {
         if(pulls[i].merged_at == null )
         { 
             var ol = document.getElementById("pull");
-            var num = document.createElement("li");
-            var title = document.createElement("li");
-            var userLogin = document.createElement("li");
-            var closedAt = document.createElement("li");
-            var files = document.createElement("li");
-            var merged = document.createElement("li");
+            var att = document.createElement("li");
             var space = document.createElement("p");
-            num.appendChild(document.createTextNode(pulls[i].number));
-            title.appendChild(document.createTextNode(pulls[i].title));
-            userLogin.appendChild(document.createTextNode(pulls[i].user.login));
-            closedAt.appendChild(document.createTextNode(pulls[i].closed_at));
-            files.appendChild(document.createTextNode(pulls[i].files));
-            merged.appendChild(document.createTextNode("This pull request has not yet been merged!"));
-            ol.appendChild(num);
-            ol.appendChild(title);
-            ol.appendChild(userLogin);
-            ol.appendChild(closedAt);
-            ol.appendChild(files);
-            ol.appendChild(merged);
+            att.appendChild(document.createTextNode(pulls[i].number + "," + " " +  pulls[i].title + "," + " " + pulls[i].user.login + "," + " " +  pulls[i].closed_at + "," + " " + pulls[i].files + "," + " " + "This pull request has not yet been merged!"));
+            ol.appendChild(att);
             ol.appendChild(space);
 
         } else if(pulls[i].closed_at == null )
         { 
             var ol = document.getElementById("pull");
-            var num = document.createElement("li");
-            var title = document.createElement("li");
-            var userLogin = document.createElement("li");
-            var closedAt = document.createElement("li");
-            var files = document.createElement("li");
-            var merged = document.createElement("li");
+            var att = document.createElement("li");
             var space = document.createElement("p");
-            num.appendChild(document.createTextNode(pulls[i].number));
-            title.appendChild(document.createTextNode(pulls[i].title));
-            userLogin.appendChild(document.createTextNode(pulls[i].user.login));
-            closedAt.appendChild(document.createTextNode("This pull request has not yet been merged!"));
-            files.appendChild(document.createTextNode(pulls[i].files));
-            merged.appendChild(document.createTextNode(pulls[i].merged_at));
-            ol.appendChild(num);
-            ol.appendChild(title);
-            ol.appendChild(userLogin);
-            ol.appendChild(closedAt);
-            ol.appendChild(files);
-            ol.appendChild(merged);
+            att.appendChild(document.createTextNode(pulls[i].number + "," + " " +  pulls[i].title + "," + " " + pulls[i].user.login + "," + " " + "This pull request has not yet been closed!" + "," + " " + pulls[i].files + "," + " " + pulls[i].merged_at));
+            ol.appendChild(att);
             ol.appendChild(space);
-
         } else
         {
             var ol = document.getElementById("pull");
-            var num = document.createElement("li");
-            var title = document.createElement("li");
-            var userLogin = document.createElement("li");
-            var closedAt = document.createElement("li");
-            var files = document.createElement("li");
-            var merged = document.createElement("li");
+            //var title = document.createElement("li");
+            var att = document.createElement("li");
             var space = document.createElement("p");
-            num.appendChild(document.createTextNode(pulls[i].number));
-            title.appendChild(document.createTextNode(pulls[i].title));
-            userLogin.appendChild(document.createTextNode(pulls[i].user.login));
-            closedAt.appendChild(document.createTextNode(pulls[i].closed_at));
-            files.appendChild(document.createTextNode(pulls[i].files));
-            merged.appendChild(document.createTextNode(pulls[i].merged_at));
-            ol.appendChild(num);
-            ol.appendChild(title);
-            ol.appendChild(userLogin);
-            ol.appendChild(closedAt);
-            ol.appendChild(files);
-            ol.appendChild(merged);
+           // title.appendChild(document.createTextNode("Number: " + "Title: " + "User Login: " + "Closed At: " + "Merged: "));
+            att.appendChild(document.createTextNode(pulls[i].number + "," + " " +  pulls[i].title + "," + " " + pulls[i].user.login + "," + " " +  pulls[i].closed_at + "," + " " + pulls[i].files + "," + " " + pulls[i].merged_at));
+           // ol.appendChild(title);
+            ol.appendChild(att);
             ol.appendChild(space);
         }
     }
